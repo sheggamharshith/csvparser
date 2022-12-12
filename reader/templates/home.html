@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="p-10 bg-gray-100 h-screen">
+        <h1 class="text-center font-bold text-3xl mb-4">Welcome to Csv Parser</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
+            {% for key,value in data.items %}
+            <div class="col">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ value.2 }}</h2>
+                        <p>{{ value.3 }}</p>
+                        <div class="card-actions justify-end">
+                            <a href="{% url 'parse' key %}" class="btn btn-primary">Upload  </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock body %}
